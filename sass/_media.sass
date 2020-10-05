@@ -1,0 +1,390 @@
+@import '_options'
+
+@for $i from 1 to length($mediaBp)
+    @media ( max-width: nth($mediaBp, $i) )
+        .container
+            max-width: nth($mediaBp, $i + 1)
+
+                
+        @if nth($mediaBp, $i) == 1350px
+            .feature__picture
+                &_right
+                    margin: 20px 0 0 20px
+                &_left
+                    margin: 20px 20px 0 0
+            
+            .tabs-nav
+                margin-right: 60px
+                
+            .tesimonails__grid-col
+                padding: 20px 30px 25px
+
+
+        @if nth($mediaBp, $i) == 1200px
+            .container
+                padding-left: 60px
+                padding-right: 60px
+            
+            .block1
+                &__grid
+                    padding-bottom: 135px
+                &__form
+                    right: 60px
+            
+            .brand-bar__grid
+                &-col
+                    width: 68%
+                    &:first-child
+                        width: 32%
+
+            .sosiety-item
+                &__link        
+                    margin-left: 25px
+
+            .tabs-nav
+                margin-right: 40px
+
+                
+            .tesimonails__grid
+                margin: 0
+
+            .tesimonails__grid-col
+                padding: 20px 10px 25px
+
+            .feature1__picture
+                width: 280px
+
+            .feature2__picture, .feature3__picture
+                width: 460px
+
+                    
+        @if nth($mediaBp, $i) == 980px
+            .block1
+                &__grid
+                    margin-top: 125px
+                    padding-bottom: 85px
+                    flex-direction: column
+                    &-col                        
+                        text-align: center
+                        &:first-child
+                            width: 100%
+                        &:last-child
+                            display: flex
+                            justify-content: center    
+                        & + &
+                            margin-top: 40px
+                &__form
+                    position: static
+                    transform: none
+                &__text::before
+                    left: calc(50% - 65px/2)
+            
+            .brand-bar
+                &__grid
+                    flex-direction: column
+                    text-align: center
+                    &-col
+                        width: 100%
+                        &:first-child
+                            width: 100%
+                        &:last-child
+                            justify-content: center
+                                            
+            .sosiety-item
+                font-size: 36px
+                display: block
+                margin-top: 15px
+
+            .feature1, .feature2, .feature3
+                padding: 70px 0
+                &__picture
+                    display: none
+            
+            .feature2, .feature3
+                &__item
+                    &-title
+                        text-align: center
+                    &-text
+                        text-align: center
+                        &:before
+                            left: calc(50% - 65px/2)
+          
+            .pricing
+                &__grid
+                    padding: 40px
+                    &-col
+                        padding-top: 20px
+                        text-align: center
+                    &:nth-child(odd)
+                        padding-top: 20px
+                &__item
+                    display: flex
+                    &-first
+                        width: 60%
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-between
+                    &-second
+                        width: 41%
+
+            .process__grid, .tesimonails__grid
+                padding: 40px
+                
+                       
+            .contact, .custom
+                padding: 70px 0
+
+            .text-upload__item           
+                flex-direction: column
+                align-items: center
+                text-align: center
+                &-block
+                    & + &
+                        margin-left: 0
+                &-title
+                    margin-top: 10px
+                        
+            .contact__grid-col
+                padding: 0 10px
+
+
+        @else if nth($mediaBp, $i) == 767px
+            .nav
+                z-index: 1
+                visibility: hidden
+                opacity: 0
+                position: fixed
+                // top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                background-color: rgba(0,0,0,.8)
+                transition:
+                    property: visibility, opacity
+                    duration: .3s
+                &_active
+                    visibility: visible
+                    opacity: 1
+                    & .nav-list
+                        transform: translate(0, 0)
+                &-list
+                    text-align: center
+                    padding-top: 20px
+                    flex-direction: column
+                    transition: .3s
+                    position: absolute
+                    top: 0
+                    left: 0
+                    height: 100%
+                    overflow: hidden
+                    overflow-x: auto
+                    transform: translate(0, -100)
+                    li + li
+                        margin-left: 0
+                        margin-top: 5px
+                        border-bottom: 1px dotted grey
+                    li:first-child
+                        border-top: 1px dotted grey
+                        border-bottom: 1px dotted grey
+                    &__link
+                        @include fon("Raleway", normal, 32px, inherit)
+                        display: block
+                        width: 100vw
+                        padding: 10px 0
+                &-toggle
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    margin-top: 0
+                    padding: 0
+                    height: 35px
+                    width: 35px
+                        
+            .button_feature1
+                bottom: 0
+
+            .tabs-content__item-text
+                margin-top: 30px
+                & > p + p
+                    margin-top: 15px
+            
+        @else if nth($mediaBp, $i) == 640px
+            .container
+                padding-left: 15px
+                padding-right: 15px
+
+            .process-pricing, .tesimonails, .custom, .contact, .block1
+                &__title
+                    font-size: 24px
+
+            .sosiety-item
+                font-size: 32px
+                &_little
+                    font-size: 18px
+                    & > [class*="link"]
+                        margin-left: 15px
+
+            .tabs
+                &-nav
+                    width: 100%
+                    flex-direction: row
+                    margin-bottom: 20px
+                    &__item
+                        padding: 20px 0    
+                        & + & 
+                            border-top: none    
+                &-content
+                    flex-direction: column    
+                    &__item        
+                &-block__button
+                    display: flex
+                    justify-content: center
+
+            .button_feature1
+                position: static
+                margin-top: 30px
+           
+            .pricing
+                &__grid
+                    &-col
+                        padding-top: 20px
+                &__item
+                    display: block
+                    &-first
+                        width: 100%
+                    &-second
+                        width: 100%
+           
+            .contact__grid
+                flex-wrap: wrap
+                margin-top: 30px
+                &-col
+                    width: 100%
+                    & + &
+                        margin-top: 30px
+            
+            .contact__grid-col
+                & + &
+                    margin-top: 0
+            
+        @else if nth($mediaBp, $i) == 480px
+            .process-pricing, .tesimonails, .custom, .contact, .block1
+                &__title
+                    font-size: 21px
+            
+            .block1__form
+                &-name, &-email, &-password
+                    margin-right: 20px
+                    margin-left: 20px
+
+            .block1
+                &__form
+                    width: 290px
+                &__text
+                    margin-top: 40px
+                    &::before
+                        top: -20px
+
+            .tabs-content__item
+                text-align: center
+
+            .feature2, .feature3
+                &__item
+                    &-text
+                        margin-top: 40px
+                        &::before
+                            top: -20px
+
+            .text-upload__item
+                margin-top: 20px
+            
+            .process-pricing, .tesimonails, .custom, .contact
+                &__text
+                    margin-top: 40px
+                    &::before
+                        top: -20px
+
+            .process, .pricing
+                &__grid
+                    margin-top: 5px
+                    &-col + &-col
+                        margin-top: 5px
+                
+            .tesimonails__grid-col
+                padding: 0
+
+            .sosiety-item
+                font-size: 28px
+                &_little
+                    font-size: 24px
+                    & > [class*="link"]
+                        margin-left: 10px
+                &__link
+                    margin-left: 5px
+
+            .block1__form-name, .block1__form-email, .block1__form-password, .block1__form-message
+                & + label
+                    margin: 0 20px
+                &_contact
+                    margin-top: 25px
+                    margin-left: 0
+                    margin-right: 0
+                    & + label
+                        margin: 0
+            
+            .block1__form-message
+                height: 120px
+
+            .feature1, .feature2, .feature3, .process, .pricing, .tesimonails, .contact
+                padding-top: 40px
+                padding-bottom: 40px
+
+            .process-grid, .pricing__grid-col, .pricing__grid-col:nth-child(odd)
+                padding-top: 20px
+
+            .pricing__item-popular-item, .pricing__item-text
+                padding-top: 10px
+                padding-bottom: 10px
+
+            .pricing__item-text
+                padding-bottom: 15px
+            
+            .pricing__item-title
+                padding-top: 15px
+                padding-bottom: 15px
+            
+                     
+            
+        @if nth($mediaBp, $i) == 330px
+            .main
+                overflow: hidden
+
+            .pricing
+                &__grid
+                    justify-content: center
+                    margin-top: 24px
+                    &-col
+                        // width: 80%
+                        padding-top: 16px
+                        & + &
+                            margin-top: 24px
+                &__item
+                    &-title
+                        font-size: 16px
+                        padding: 16px 0
+                    &-cost
+                        font-size: 72px
+                        &_baks
+                            font-size: .4em
+                    &-text
+                        padding: 12px 0 20px
+                        font-size: 12px
+                    &-popular
+                        &-title
+                            padding: 8px 0 12px
+                            font-size: 12px
+                        &-item
+                            padding: 12px 0
+                            font-size: 12px
+
+            
